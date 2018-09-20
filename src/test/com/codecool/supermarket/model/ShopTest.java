@@ -23,12 +23,13 @@ class ShopTest {
         List<Product> products = new LinkedList<>();
         products.add(new Product(1));
         products.add(new Product(2));
+        products.get(1).setAmount(2);
         when(basket.getBasketProducts()).thenReturn(products);
     }
 
     @Test
     void shouldLoadProducts() {
-        int expected = 2;
+        int expected = 3;
         int actual = shop.getProductsList().size();
 
         assertEquals(expected, actual);
@@ -36,9 +37,18 @@ class ShopTest {
 
 
     @Test
-    void shouldCalculateBill() {
-        float expected = 5.00f;
+    void shouldCalculateBillFromNonEmptyBasket() {
+        float expected = 4.00f;
         float actual = shop.calculateBill(basket);
+
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    void shouldCalculateBillFromEmptyBasket() {
+        float expected = 0f;
+        float actual = shop.calculateBill(new Basket());
 
         assertEquals(expected, actual);
     }

@@ -1,7 +1,10 @@
 package com.codecool.supermarket.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Basket {
 
@@ -11,6 +14,27 @@ public class Basket {
         productList = new LinkedList<>();
     }
 
+
+    public void loadBasketProducts(String filePath) throws FileNotFoundException {
+        Scanner scanner = new Scanner(new File(filePath));
+        int barcode;
+        while (scanner.hasNext()) {
+            barcode = Integer.parseInt(scanner.nextLine().trim());
+            addProduct(barcode);
+        }
+        scanner.close();
+    }
+
+
+    private void addProduct(int barcode) {
+        for (Product product: productList) {
+            if (product.getBarcode() == barcode) {
+                product.setAmount(product.getAmount() + 1);
+                return;
+            }
+        }
+        add(new Product(barcode));
+    }
 
     public void add(Product product) {
         if (product == null) {

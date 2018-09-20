@@ -21,11 +21,6 @@ public class Product {
     }
 
 
-    public Product(String name) {
-        this.name = name;
-    }
-
-
     public Product(int barcode) {
         this.barcode = barcode;
     }

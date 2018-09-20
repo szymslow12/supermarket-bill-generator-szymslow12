@@ -23,4 +23,18 @@ public class Basket {
     public int size() {
         return productList.size();
     }
+
+
+    public void remove(String productName) {
+        if (productName == null) {
+            return;
+        }
+        List<Product> productListCopy = new LinkedList<>();
+        productListCopy.addAll(productList);
+        for (Product product: productListCopy) {
+            if (product.getName().equals(productName)) {
+                productList.remove(product);
+            }
+        }
+    }
 }

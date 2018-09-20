@@ -6,6 +6,7 @@ public class Product {
     private int barcode;
     private float price = 0;
     private int amount = 1;
+    private boolean isOnPromotion = false;
 
 
     public Product(String name, int barcode) {
@@ -14,10 +15,11 @@ public class Product {
     }
 
 
-    public Product(String name, int barcode, float price, int amount) {
+    public Product(String name, int barcode, float price, int amount, boolean isOnPromotion) {
         this(name, barcode);
         this.amount = amount;
         this.price = price;
+        this.isOnPromotion = isOnPromotion;
     }
 
 
@@ -68,6 +70,16 @@ public class Product {
 
     public void setBarcode(int barcode) {
         this.barcode = barcode;
+    }
+
+
+    public boolean isOnPromotion() {
+        return isOnPromotion;
+    }
+
+
+    public void setOnPromotion(boolean onPromotion) {
+        isOnPromotion = onPromotion;
     }
 
     @Override

@@ -65,4 +65,17 @@ class BasketTest {
 
         assertEquals(expected, actual);
     }
+
+
+    @Test
+    void shouldNotRemoveNull() {
+        Basket basket = getFilledBasket();
+
+        basket.remove(null);
+
+        int expected = 3;
+        int actual = basket.size();
+
+        assertEquals(expected, actual);
+    }
 }

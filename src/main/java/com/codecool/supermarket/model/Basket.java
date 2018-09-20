@@ -10,4 +10,17 @@ public class Basket {
     public Basket() {
         productList = new LinkedList<>();
     }
+
+
+    public void add(Product product) {
+        if (product == null) {
+            return;
+        }
+        productList.add(product);
+    }
+
+
+    public int size() {
+        return productList.size();
+    }
 }

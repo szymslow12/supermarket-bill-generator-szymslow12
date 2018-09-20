@@ -78,4 +78,17 @@ class BasketTest {
 
         assertEquals(expected, actual);
     }
+
+
+    @Test
+    void shouldLoadBasketFromFile() {
+        Basket basket = new Basket();
+
+        basket.loadBasketProducts("src/main/resources/test-basket.txt");
+
+        int expected = 2;
+        int actual = basket.size();
+
+        assertEquals(expected, actual);
+    }
 }

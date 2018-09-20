@@ -40,6 +40,16 @@ public class Shop {
 
 
     public float calculateBill(Basket basket) {
+        float bill = 0f;
+        List<Product> basketProducts = basket.getBasketProducts();
+        for (Product basketProduct: basketProducts) {
+            Product[] shopProducts = findProducts(basketProduct.getBarcode());
+        }
         return 1f;
+    }
+
+
+    private Product[] findProducts(int barcode) {
+
     }
 }

@@ -30,6 +30,7 @@ public class Shop {
             float price = Float.valueOf(item[3].trim());
             products.add(new Product(name, barcode, price, amount));
         }
+        scanner.close();
     }
 
 

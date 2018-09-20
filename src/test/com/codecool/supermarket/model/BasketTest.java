@@ -88,7 +88,7 @@ class BasketTest {
 
         basket.loadBasketProducts("src/main/resources/test-basket.txt");
 
-        int expected = 2;
+        int expected = 3;
         int actual = basket.size();
 
         assertEquals(expected, actual);

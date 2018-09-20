@@ -6,10 +6,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ShopTest {
 
+    private Shop shop = new Shop("src/main/resources/test-products.csv");
+
     @Test
     void shouldLoadProducts() {
-        Shop shop = new Shop("src/main/resources/test_products.csv");
+        int expected = 2;
+        int actual = shop.getProductsList().size();
 
-
+        assertEquals(expected, actual);
     }
 }

@@ -2,7 +2,6 @@ package com.codecool.supermarket.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -21,6 +20,7 @@ public class Shop {
 
     private void loadProducts(String pathToFile) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(pathToFile));
+        scanner.nextLine();
         String[] item;
         while (scanner.hasNext()) {
             item = scanner.nextLine().split(",");
@@ -35,5 +35,10 @@ public class Shop {
 
     public List<Product> getProductsList() {
         return products;
+    }
+
+
+    public float calculateBill(Basket basket) {
+        return 1f;
     }
 }

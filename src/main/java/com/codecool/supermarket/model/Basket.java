@@ -37,4 +37,9 @@ public class Basket {
             }
         }
     }
+
+
+    public List<Product> getBasketProducts() {
+        return productList;
+    }
 }

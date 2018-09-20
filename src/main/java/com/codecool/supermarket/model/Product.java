@@ -4,7 +4,7 @@ public class Product {
 
     private String name = null;
     private int barcode;
-    private int price = 0;
+    private float price = 0;
     private int amount = 1;
 
 
@@ -14,7 +14,7 @@ public class Product {
     }
 
 
-    public Product(String name, int barcode, int price, int amount) {
+    public Product(String name, int barcode, float price, int amount) {
         this(name, barcode);
         this.amount = amount;
         this.price = price;
@@ -41,12 +41,12 @@ public class Product {
     }
 
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
 
-    public void setPrice(int price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

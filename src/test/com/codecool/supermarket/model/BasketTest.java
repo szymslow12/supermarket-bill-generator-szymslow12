@@ -2,6 +2,8 @@ package com.codecool.supermarket.model;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BasketTest {
@@ -81,7 +83,7 @@ class BasketTest {
 
 
     @Test
-    void shouldLoadBasketFromFile() {
+    void shouldLoadBasketFromFile() throws FileNotFoundException {
         Basket basket = new Basket();
 
         basket.loadBasketProducts("src/main/resources/test-basket.txt");

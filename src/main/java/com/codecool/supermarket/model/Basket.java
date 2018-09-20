@@ -45,7 +45,11 @@ public class Basket {
 
 
     public int size() {
-        return productList.size();
+        int size = 0;
+        for (Product product: productList) {
+            size += product.getAmount();
+        }
+        return size;
     }
 
 

@@ -40,18 +40,21 @@ public class Shop {
 
 
     public float calculateBill(Basket basket) {
+        if (basket == null) {
+            throw new IllegalArgumentException("Didn't receive basket!");
+        }
         float bill = 0f;
         List<Product> basketProducts = basket.getBasketProducts();
         for (Product basketProduct: basketProducts) {
             List<Product> shopProducts = findProducts(basketProduct.getBarcode());
             for (Product shopProduct: shopProducts) {
-                if (basketProduct.getAmount() > 0) {
+                while(basketProduct.getAmount() > 0 && shopProduct.getAmount() <= basketProduct.getAmount()) {
                     bill += shopProduct.getPrice();
                     basketProduct.setAmount(basketProduct.getAmount() - shopProduct.getAmount());
                 }
             }
         }
-        return bill;
+        return Float.valueOf(String.format("%.4g", bill).replace(',', '.'));
     }
 
 

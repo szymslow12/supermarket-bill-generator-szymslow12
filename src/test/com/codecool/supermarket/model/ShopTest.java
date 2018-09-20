@@ -37,7 +37,7 @@ class ShopTest {
 
     @Test
     void shouldCalculateBill() {
-        float expected = 3.00f;
+        float expected = 5.00f;
         float actual = shop.calculateBill(basket);
 
         assertEquals(expected, actual);

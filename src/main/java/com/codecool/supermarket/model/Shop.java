@@ -42,13 +42,12 @@ public class Shop {
     public float calculateBill(Basket basket) {
         float bill = 0f;
         List<Product> basketProducts = basket.getBasketProducts();
-        System.out.println(basketProducts);
         for (Product basketProduct: basketProducts) {
             List<Product> shopProducts = findProducts(basketProduct.getBarcode());
-            System.out.println(shopProducts);
             for (Product shopProduct: shopProducts) {
-                if (basketProduct.getAmount() >= shopProduct.getAmount()) {
+                if (basketProduct.getAmount() > 0) {
                     bill += shopProduct.getPrice();
+                    basketProduct.setAmount(basketProduct.getAmount() - shopProduct.getAmount());
                 }
             }
         }

@@ -52,4 +52,9 @@ class ShopTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    void shouldCalculateBillThrowsExceptionIfNullPassed() {
+        assertThrows(IllegalArgumentException.class, () -> shop.calculateBill(null));
+    }
 }

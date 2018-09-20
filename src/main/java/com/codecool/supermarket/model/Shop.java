@@ -42,14 +42,40 @@ public class Shop {
     public float calculateBill(Basket basket) {
         float bill = 0f;
         List<Product> basketProducts = basket.getBasketProducts();
+        System.out.println(basketProducts);
         for (Product basketProduct: basketProducts) {
-            Product[] shopProducts = findProducts(basketProduct.getBarcode());
+            List<Product> shopProducts = findProducts(basketProduct.getBarcode());
+            System.out.println(shopProducts);
+            for (Product shopProduct: shopProducts) {
+                if (basketProduct.getAmount() >= shopProduct.getAmount()) {
+                    bill += shopProduct.getPrice();
+                }
+            }
         }
-        return 1f;
+        return bill;
     }
 
 
-    private Product[] findProducts(int barcode) {
+    private List<Product> findProducts(int barcode) {
+        List<Product> toReturn = new LinkedList<>();
+        for (Product product: products) {
+            if (barcode == product.getBarcode()) {
+                toReturn.add(product);
+            }
+        }
+        sortDescByAmount(toReturn);
+        return toReturn;
+    }
 
+
+    private void sortDescByAmount(List<Product> productList) {
+        for (int i = 1; i < productList.size(); i++) {
+            Product first = productList.get(i - 1);
+            Product second = productList.get(i);
+            if (first.getAmount() < second.getAmount()) {
+                productList.set(i - 1, second);
+                productList.set(i, first);
+            }
+        }
     }
 }

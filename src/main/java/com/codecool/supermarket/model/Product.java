@@ -2,25 +2,32 @@ package com.codecool.supermarket.model;
 
 public class Product {
 
-    private String name;
-    private int price;
+    private String name = null;
+    private int barcode;
+    private int price = 0;
     private int amount = 1;
 
 
-    public Product(String name, int price) {
+    public Product(String name, int barcode) {
         this.name = name;
-        this.price = price;
+        this.barcode = barcode;
     }
 
 
-    public Product(String name, int price, int amount) {
-        this(name, price);
+    public Product(String name, int barcode, int price, int amount) {
+        this(name, barcode);
         this.amount = amount;
+        this.price = price;
     }
 
 
     public Product(String name) {
         this.name = name;
+    }
+
+
+    public Product(int barcode) {
+        this.barcode = barcode;
     }
 
 
@@ -53,6 +60,15 @@ public class Product {
         this.amount = amount;
     }
 
+
+    public int getBarcode() {
+        return barcode;
+    }
+
+
+    public void setBarcode(int barcode) {
+        this.barcode = barcode;
+    }
 
     @Override
     public String toString() {
